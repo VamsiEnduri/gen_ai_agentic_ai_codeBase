@@ -3,13 +3,17 @@ from langchain.agents import create_agent
 from langchain_groq import ChatGroq
 from langchain.tools import tool 
 import requests
+import os 
+from dotenv import load_dotenv
+
+load_dotenv()
 app =FastAPI()
 
-OPENWEATHER_API_KEY="d9614b1a3486550de64442cd0b303fab"
+OPENWEATHER_API_KEY=os.getenv("OPENWEATHER_API_KEY")
 
 llm=ChatGroq(
     model="llama-3.3-70b-versatile",
-    api_key="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"
+    api_key=os.getenv("api_key")
 )
 
 
